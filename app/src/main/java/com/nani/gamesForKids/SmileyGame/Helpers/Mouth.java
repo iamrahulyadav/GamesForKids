@@ -1,4 +1,4 @@
-package com.nani.dots.SmileyGame.Helpers;
+package com.nani.gamesForKids.SmileyGame.Helpers;
 
 import android.graphics.RectF;
 

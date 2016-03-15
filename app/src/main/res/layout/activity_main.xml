@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.nani.dots.SmileyGame.SmileyBoardView
+    <com.nani.gamesForKids.SmileyGame.SmileyBoardView
         android:id="@+id/boardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

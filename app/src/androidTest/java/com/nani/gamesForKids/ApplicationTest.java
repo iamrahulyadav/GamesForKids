@@ -1,4 +1,4 @@
-package com.nani.dots;
+package com.nani.gamesForKids;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,12 +1,12 @@
-package com.nani.dots.SmileyGame;
+package com.nani.gamesForKids.SmileyGame;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nani.dots.R;
-import com.nani.dots.SmileyGame.Helpers.Smiley;
+import com.nani.gamesForKids.R;
+import com.nani.gamesForKids.SmileyGame.Helpers.Smiley;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

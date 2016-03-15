@@ -1,14 +1,14 @@
-package com.nani.dots.SmileyGame;
+package com.nani.gamesForKids.SmileyGame;
 
 import android.content.Context;
 import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.nani.dots.MVPView;
-import com.nani.dots.Presenter;
-import com.nani.dots.R;
-import com.nani.dots.SmileyGame.Helpers.Smiley;
+import com.nani.gamesForKids.MVPView;
+import com.nani.gamesForKids.Presenter;
+import com.nani.gamesForKids.R;
+import com.nani.gamesForKids.SmileyGame.Helpers.Smiley;
 
 import java.util.Random;
 

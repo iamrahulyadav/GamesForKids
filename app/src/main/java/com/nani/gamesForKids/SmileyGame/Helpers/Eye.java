@@ -42,16 +42,4 @@ public class Eye {
                 this.eyeCenterY + verticalIrisRadius
         );
     }
-
-    public float getIrisCenterX() {
-        return this.eyeCenterX;
-    }
-
-    public float getIrisCenterY() {
-        return this.eyeCenterY + this.smileyRadius / 10;
-    }
-
-    public float getIrisRadius() {
-        return this.smileyRadius / 12;
-    }
 }

@@ -22,7 +22,7 @@ public class FollowSmileyActivity extends AppCompatActivity implements SmileyBoa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_follow_smiley);
         ButterKnife.bind(this);
 
         this.mDecorView = getWindow().getDecorView();

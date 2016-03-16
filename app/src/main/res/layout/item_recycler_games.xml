@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="10dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/background_gradient">
 
         <ImageView
             android:id="@+id/gameIconImageView"
@@ -21,9 +23,9 @@
 
         <TextView
             android:id="@+id/gameNameTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Natalia" />
-    </LinearLayout>
+            style="@style/AppTheme.GameCardLabel"/>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

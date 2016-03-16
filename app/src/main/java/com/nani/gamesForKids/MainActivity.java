@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.nani.gamesForKids.SmileyGame.FollowSmileyActivity;
 
 import butterknife.Bind;
@@ -18,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
 
     @Bind(R.id.gamesRecyclerView)
     RecyclerView gamesRecyclerView;
+    @Bind(R.id.applicationTitleImageView)
+    ImageView logoImageView;
+    @Bind(R.id.backgroundImageView)
+    ImageView backgroundImageView;
 
     private GamesRecyclerViewAdapter adapter;
     private GestureDetector gestureDetector;
@@ -31,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         setupRecyclerViewLayoutManager();
         setupRecyclerViewAdapter();
         setupRecyclerViewClickListener();
+
+        Glide.with(this).load(R.drawable.toddler_logo).into(this.logoImageView);
+        Glide.with(this).load(R.drawable.background).centerCrop().into(this.backgroundImageView);
     }
 
     @Override
@@ -49,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     }
 
     private void setupRecyclerViewAdapter() {
-        this.adapter = new GamesRecyclerViewAdapter();
+        this.adapter = new GamesRecyclerViewAdapter(this);
 
         this.gamesRecyclerView.setAdapter(this.adapter);
     }

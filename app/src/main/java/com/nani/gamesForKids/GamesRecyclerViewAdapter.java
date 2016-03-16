@@ -1,11 +1,14 @@
 package com.nani.gamesForKids;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +22,11 @@ import butterknife.ButterKnife;
 public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecyclerViewAdapter.GameViewHolder> {
 
     private List<Game> games;
+    private Context context;
 
-    public GamesRecyclerViewAdapter() {
+    public GamesRecyclerViewAdapter(Context context) {
+        this.context = context;
+
         populateListOfGames();
     }
 
@@ -35,7 +41,7 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
     public void onBindViewHolder(GameViewHolder holder, int position) {
         Game game = this.games.get(position);
         holder.nameTextView.setText(game.getName());
-        holder.iconImageView.setImageResource(game.getGameImageResource());
+        Glide.with(this.context).load(game.getGameImageResource()).into(holder.iconImageView);
     }
 
     @Override
@@ -59,9 +65,9 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
     private void populateListOfGames() {
         this.games = new ArrayList<>();
 
-        this.games.add(new Game("Smiley", R.mipmap.ic_launcher));
+        this.games.add(new Game("Smiley", R.drawable.game_smiley));
         this.games.add(new Game("Smiley", R.mipmap.ic_launcher, "info"));
-        this.games.add(new Game("Smiley", R.mipmap.ic_launcher));
+        this.games.add(new Game("Smiley", R.drawable.game_smiley));
         this.games.add(new Game("Smiley", R.mipmap.ic_launcher, "info"));
     }
 }

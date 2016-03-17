@@ -1,26 +1,22 @@
-package com.nani.gamesForKids.CatchADot;
+package com.nani.gamesForKids.Core;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.nani.gamesForKids.R;
 import org.apache.cordova.CordovaActivity;
 
-public class CatchDotActivity extends CordovaActivity {
+/**
+ * Created by nataliajastrzebska on 17/03/16.
+ */
+public class FullScreenGameCordovaActivity  extends CordovaActivity{
 
     private View mDecorView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catch_dot);
 
         this.mDecorView = getWindow().getDecorView();
-
-        super.init();
-
-        launchUrl = "file:///android_asset/catch_a_dot/www/index.html";
-        loadUrl(launchUrl);
     }
 
     @Override

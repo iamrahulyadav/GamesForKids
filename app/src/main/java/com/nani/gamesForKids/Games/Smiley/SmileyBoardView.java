@@ -1,4 +1,4 @@
-package com.nani.gamesForKids.SmileyGame;
+package com.nani.gamesForKids.Games.Smiley;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,10 +7,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.nani.gamesForKids.SmileyGame.Helpers.Eye;
-import com.nani.gamesForKids.SmileyGame.Helpers.Eyes;
-import com.nani.gamesForKids.SmileyGame.Helpers.Mouth;
-import com.nani.gamesForKids.SmileyGame.Helpers.Smiley;
+import com.nani.gamesForKids.Games.Smiley.Helpers.Eye;
+import com.nani.gamesForKids.Games.Smiley.Helpers.Eyes;
+import com.nani.gamesForKids.Games.Smiley.Helpers.Mouth;
+import com.nani.gamesForKids.Games.Smiley.Helpers.Smiley;
 
 /**
  * Created by nataliajastrzebska on 15/03/16.

@@ -1,4 +1,4 @@
-package com.nani.gamesForKids;
+package com.nani.gamesForKids.GamesList;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.nani.gamesForKids.CatchADot.CatchDotActivity;
-import com.nani.gamesForKids.SmileyGame.FollowSmileyActivity;
+import com.nani.gamesForKids.Games.CatchADot.CatchDotActivity;
+import com.nani.gamesForKids.R;
+import com.nani.gamesForKids.Games.Smiley.FollowSmileyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
         this.games = new ArrayList<>();
 
         this.games.add(new Game("Smiley", R.drawable.game_smiley, FollowSmileyActivity.class));
-        this.games.add(new Game("Smiley", R.mipmap.ic_launcher, CatchDotActivity.class));
+        this.games.add(new Game("Catch a dot", R.mipmap.ic_launcher, CatchDotActivity.class));
         this.games.add(new Game("Smiley", R.drawable.game_smiley, FollowSmileyActivity.class));
         this.games.add(new Game("Smiley", R.mipmap.ic_launcher, "info", FollowSmileyActivity.class));
     }

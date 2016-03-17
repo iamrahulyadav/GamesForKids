@@ -11,18 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".SmileyGame.FollowSmileyActivity"
+            android:name=".Games.Smiley.FollowSmileyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Fullscreen" >
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".GamesList.GamesListActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Games.CatchADot.CatchDotActivity" >
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.nani.gamesForKids;
+package com.nani.gamesForKids.Core;
 
 /**
  * Created by nataliajastrzebska on 15/03/16.

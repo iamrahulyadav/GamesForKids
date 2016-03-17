@@ -1,31 +1,28 @@
-package com.nani.gamesForKids.SmileyGame;
+package com.nani.gamesForKids.Games.Smiley;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
+import com.nani.gamesForKids.Core.FullScreenGameActivity;
 import com.nani.gamesForKids.R;
-import com.nani.gamesForKids.SmileyGame.Helpers.Smiley;
+import com.nani.gamesForKids.Games.Smiley.Helpers.Smiley;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class FollowSmileyActivity extends AppCompatActivity implements SmileyBoardView.BoardViewSizeChangedListener, FollowSmileyPresenter.FollowSmileyView {
+public class FollowSmileyActivity extends FullScreenGameActivity implements SmileyBoardView.BoardViewSizeChangedListener, FollowSmileyPresenter.FollowSmileyView {
 
     @Bind(R.id.boardView)
     SmileyBoardView boardView;
 
-    private View mDecorView;
     FollowSmileyPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_follow_smiley);
         ButterKnife.bind(this);
-
-        this.mDecorView = getWindow().getDecorView();
 
         this.presenter = new FollowSmileyPresenter();
         this.presenter.attachView(this);
@@ -48,20 +45,6 @@ public class FollowSmileyActivity extends AppCompatActivity implements SmileyBoa
     public void onSizeChanged() {
         this.presenter.setSizeOfView(this.boardView.getWidth(), this.boardView.getHeight());
         this.boardView.setOnTouchListener(this.presenter);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-
-        if (hasFocus) {
-            mDecorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.nani.gamesForKids;
+package com.nani.gamesForKids.GamesList;
 
 /**
  * Created by nataliajastrzebska on 16/03/16.
@@ -7,16 +7,19 @@ public class Game {
     private String name;
     private int gameImageResource;
     private String information;
+    private Class activityClass;
 
-    public Game(String name, int gameImage) {
+    public Game(String name, int gameImage, Class activityClass) {
         this.name = name;
         this.gameImageResource = gameImage;
+        this.activityClass = activityClass;
     }
 
-    public Game(String name, int gameImage, String information) {
+    public Game(String name, int gameImage, String information, Class activityClass) {
         this.name = name;
         this.gameImageResource = gameImage;
         this.information = information;
+        this.activityClass = activityClass;
     }
 
     public String getName() {
@@ -45,5 +48,13 @@ public class Game {
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    public Class getActivityClass() {
+        return activityClass;
+    }
+
+    public void setActivityClass(Class activityClass) {
+        this.activityClass = activityClass;
     }
 }

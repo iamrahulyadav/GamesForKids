@@ -1,4 +1,4 @@
-package com.nani.gamesForKids;
+package com.nani.gamesForKids.GamesList;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.nani.gamesForKids.SmileyGame.FollowSmileyActivity;
+import com.nani.gamesForKids.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener {
+public class GamesListActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener {
 
     @Bind(R.id.gamesRecyclerView)
     RecyclerView gamesRecyclerView;
@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     private GamesRecyclerViewAdapter adapter;
     private GestureDetector gestureDetector;
 
+    private final int numberOfColumns = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_games_list);
         ButterKnife.bind(this);
 
-        setupRecyclerViewLayoutManager();
-        setupRecyclerViewAdapter();
-        setupRecyclerViewClickListener();
+        setupRecyclerView();
 
         Glide.with(this).load(R.drawable.toddler_logo).into(this.logoImageView);
         Glide.with(this).load(R.drawable.background).centerCrop().into(this.backgroundImageView);
@@ -49,9 +49,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         ButterKnife.unbind(this);
     }
 
+    private void setupRecyclerView() {
+        setupRecyclerViewLayoutManager();
+        setupRecyclerViewAdapter();
+        setupRecyclerViewClickListener();
+    }
+
     private void setupRecyclerViewLayoutManager() {
-        int columns = 2;
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, columns);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, this.numberOfColumns);
         gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
 
         this.gamesRecyclerView.setLayoutManager(gridLayoutManager);
@@ -79,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         View childView = recyclerView.findChildViewUnder(e.getX(), e.getY());
 
         if (childView != null && gestureDetector.onTouchEvent(e)) {
-            displayGameForPosition(recyclerView.getChildAdapterPosition(childView));
+            displayGameAtPosition(recyclerView.getChildAdapterPosition(childView));
 
             return true;
         }
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
 
     }
 
-    private void displayGameForPosition(int position) {
-        startActivity(new Intent(this, FollowSmileyActivity.class));
+    private void displayGameAtPosition(int position) {
+        startActivity(new Intent(this, this.adapter.getGameAtPosition(position).getActivityClass()));
     }
 }

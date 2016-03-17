@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.nani.gamesForKids.SmileyGame.FollowSmileyActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         View childView = recyclerView.findChildViewUnder(e.getX(), e.getY());
 
         if (childView != null && gestureDetector.onTouchEvent(e)) {
-            displayGameForPosition(recyclerView.getChildAdapterPosition(childView));
+            displayGameAtPosition(recyclerView.getChildAdapterPosition(childView));
 
             return true;
         }
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
 
     }
 
-    private void displayGameForPosition(int position) {
-        startActivity(new Intent(this, FollowSmileyActivity.class));
+    private void displayGameAtPosition(int position) {
+        startActivity(new Intent(this, this.adapter.getGameAtPosition(position).getActivityClass()));
     }
 }

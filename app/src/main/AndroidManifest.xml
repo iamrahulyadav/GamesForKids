@@ -13,8 +13,7 @@
         <activity
             android:name=".Games.Smiley.FollowSmileyActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Fullscreen" >
-        </activity>
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".GamesList.GamesListActivity"
             android:screenOrientation="portrait" >
@@ -24,8 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Games.CatchADot.CatchDotActivity" >
-        </activity>
+        <activity
+            android:name=".Games.CatchADot.CatchDotActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen"/>
+        <activity
+            android:name=".Games.Animals.AnimalsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen"/>
     </application>
 
 </manifest>

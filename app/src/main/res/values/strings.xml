@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Toddler Games</string>
+
+    <string name="cow">cow</string>
+    <string name="cat">cat</string>
+    <string name="dog">dog</string>
+    <string name="horse">horse</string>
+    <string name="duck">duck</string>
+    <string name="frog">frog</string>
+    <string name="sheep">sheep</string>
+    <string name="goat">goat</string>
 </resources>

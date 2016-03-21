@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="cow">
+        <item name="name">@string/cow</item>
+        <item name="image">@drawable/animal_cow</item>
+        <item name="sound">@raw/animal_cow</item>
+    </array>
+    <array name="cat">
+        <item name="name">@string/cat</item>
+        <item name="image">@drawable/animal_cat</item>
+        <item name="sound">@raw/animal_cat</item>
+    </array>
+    <array name="dog">
+        <item name="name">@string/dog</item>
+        <item name="image">@drawable/animal_dog</item>
+        <item name="sound">@raw/animal_dog</item>
+    </array>
+    <array name="horse">
+        <item name="name">@string/horse</item>
+        <item name="image">@drawable/animal_horse</item>
+        <item name="sound">@raw/animal_horse</item>
+    </array>
+    <array name="goat">
+        <item name="name">@string/goat</item>
+        <item name="image">@drawable/animal_goat</item>
+        <item name="sound">@raw/animal_goat</item>
+    </array>
+    <array name="sheep">
+        <item name="name">@string/sheep</item>
+        <item name="image">@drawable/animal_sheep</item>
+        <item name="sound">@raw/animal_sheep</item>
+    </array>
+    <array name="frog">
+        <item name="name">@string/frog</item>
+        <item name="image">@drawable/animal_frog</item>
+        <item name="sound">@raw/animal_frog</item>
+    </array>
+    <array name="duck">
+        <item name="name">@string/duck</item>
+        <item name="image">@drawable/animal_duck</item>
+        <item name="sound">@raw/animal_duck</item>
+    </array>
+
+    <array name="animals">
+        <item>@array/cow</item>
+        <item>@array/cat</item>
+        <item>@array/dog</item>
+        <item>@array/horse</item>
+        <item>@array/goat</item>
+        <item>@array/sheep</item>
+        <item>@array/frog</item>
+        <item>@array/duck</item>
+    </array>
+
+    <string-array name="animalNames">
+        <item>cow</item>
+        <item>cat</item>
+    </string-array>
+    
+</resources>

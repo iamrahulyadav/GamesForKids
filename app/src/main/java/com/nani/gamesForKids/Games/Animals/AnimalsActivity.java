@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class AnimalsActivity extends FullScreenGameActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

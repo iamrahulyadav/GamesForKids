@@ -9,9 +9,9 @@ import android.view.View;
  * Created by nataliajastrzebska on 21/03/16.
  */
 public class AnimalViewOnClickListener implements View.OnTouchListener {
-    int soundResourceId;
-    Context context;
-    MediaPlayer mediaPlayer;
+    private int soundResourceId;
+    private Context context;
+    private MediaPlayer mediaPlayer;
     private boolean isMediaPlayerActive = false;
 
     public AnimalViewOnClickListener(int soundResourceId, Context context) {

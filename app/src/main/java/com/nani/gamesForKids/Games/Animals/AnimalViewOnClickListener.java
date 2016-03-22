@@ -28,9 +28,9 @@ public class AnimalViewOnClickListener implements View.OnTouchListener {
             setupMediaPlayer();
         }
 
-        if (event.getAction()==MotionEvent.ACTION_MOVE || event.getAction()==MotionEvent.ACTION_DOWN) {
+        if (event.getAction() == MotionEvent.ACTION_MOVE || event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_POINTER_DOWN) {
 
-            if (this.mediaPlayer.isPlaying()){
+            if (this.mediaPlayer.isPlaying()) {
                 return true;
             }
 

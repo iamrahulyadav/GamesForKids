@@ -8,6 +8,9 @@ import com.nani.gamesForKids.Core.FullScreenGameActivity;
 import com.nani.gamesForKids.R;
 import java.util.List;
 
+import rx.Observable;
+import rx.functions.Action1;
+
 /**
  * Created by nataliajastrzebska on 21/03/16.
  */
@@ -21,9 +24,18 @@ public class AnimalsActivity extends FullScreenGameActivity {
         AnimalsHelper animalHelper = new AnimalsHelper();
         List<Animal> animals = animalHelper.getAnimals();
 
-        for (Animal animal : animals) {
+        Observable animalObservable = Observable.from(animals);
+        animalObservable.subscribe(new Action1<Animal>() {
+
+            @Override
+            public void call(Animal animal) {
+                displayAnimal(animal);
+            }
+        });
+
+        /*for (Animal animal : animals) {
             displayAnimal(animal);
-        }
+        }*/
     }
 
     @Override
@@ -31,9 +43,15 @@ public class AnimalsActivity extends FullScreenGameActivity {
         super.onDestroy();
     }
 
-    private void displayAnimal(Animal animal) {
-        ImageView imageView = (ImageView) findViewById(animal.getImageViewResource());
-        Glide.with(this).load(animal.getImageResource()).into(imageView);
+    private void displayAnimal(final Animal animal) {
+        final ImageView imageView = (ImageView) findViewById(animal.getImageViewResource());
+
+        Observable.create(subscriber -> {
+            Glide.with(this).load(animal.getImageResource()).into(imageView);
+
+            subscriber.onCompleted();
+            subscriber.unsubscribe();
+        }).subscribe();
 
         AnimalViewOnClickListener animalViewOnClickListener = new AnimalViewOnClickListener(animal.getSoundResource(), this);
         imageView.setOnTouchListener(animalViewOnClickListener);

@@ -1,10 +1,8 @@
 package com.nani.gamesForKids.Games.Animals.MovingAnimals;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,15 +13,13 @@ import com.bumptech.glide.Glide;
 import com.nani.gamesForKids.Core.FullScreenGameActivity;
 import com.nani.gamesForKids.R;
 
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by nataliajastrzebska on 21/03/16.
  */
-public class MovingAnimalsActivity extends FullScreenGameActivity implements MovingAnimalsBoard.BoardViewListener, View.OnTouchListener {
+public class MovingAnimalsActivity extends FullScreenGameActivity implements MovingAnimalsBoard.BoardViewListener, MovingAnimalsPresenter.MovingAnimalsView {
 
     @Bind(R.id.boardView)
     MovingAnimalsBoard boardView;
@@ -35,11 +31,9 @@ public class MovingAnimalsActivity extends FullScreenGameActivity implements Mov
     TextView cloudTextView;
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
-    private List<Animal> animals;
-    private int animalIndex = 0;
-    private MediaPlayer mediaPlayer;
-    private boolean isMediaPlayerActive;
-    private Bitmap backgroundBitmap;
+
+
+    private MovingAnimalsPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +41,11 @@ public class MovingAnimalsActivity extends FullScreenGameActivity implements Mov
         setContentView(R.layout.activity_moving_animals);
         ButterKnife.bind(this);
 
-        boardView.setOnTouchListener(this);
+        presenter = new MovingAnimalsPresenter();
+        presenter.attachView(this);
+        presenter.start();
+
+        boardView.setOnTouchListener(this.presenter);
     }
 
     @Override
@@ -70,16 +68,6 @@ public class MovingAnimalsActivity extends FullScreenGameActivity implements Mov
         super.onDestroy();
     }
 
-    private void displayAnimal() {
-        this.boardView.setAnimal(this.animals.get(this.animalIndex));
-        setCloud();
-        this.animalIndex++;
-
-        if (this.animalIndex == animals.size()) {
-            this.animalIndex = 0;
-        }
-    }
-
     @Override
     public void onSizeChanged() {
 
@@ -87,119 +75,52 @@ public class MovingAnimalsActivity extends FullScreenGameActivity implements Mov
             return;
         }
 
-        createBackground(this.boardView.getWidth(), this.boardView.getHeight());
-        setupCloud();
-
-        AnimalsHelper animalsHelper = new AnimalsHelper(boardView.getWidth(), boardView.getHeight());
-        this.animals = animalsHelper.getAnimals();
-        displayAnimal();
-    }
-
-    private void createBackground(int width, int height) {
-        new AsyncTask<Void, Void, Void>() {
-
-            @Override
-            protected Void doInBackground(Void... params) {
-
-                try {
-                    backgroundBitmap = Glide.with(MovingAnimalsActivity.this)
-                            .load(R.drawable.animal_background_meadow).asBitmap()
-                            .override(width, height).centerCrop().into(width, height).get();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void dummy) {
-                MovingAnimalsActivity.this.boardView.setBackgroundBitmap(backgroundBitmap);
-                progressBar.setVisibility(View.GONE);
-            }
-        }.execute();
+        this.presenter.boardViewSizeChanged(this.boardView.getWidth(), this.boardView.getHeight());
     }
 
     @Override
     public void onAnimalOutsideScreen() {
-        stopMediaPlayer();
-        displayAnimal();
+        this.presenter.animalOutsideScreen();
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public void displayAnimal(Animal animal) {
+        this.boardView.setAnimal(animal);
+    }
 
-        if (isMotionEventClicked(motionEvent) && clickedOnAnimal(motionEvent)) {
-            playSound();
+    @Override
+    public void setCloudText(int animalSaysResource) {
+        runOnUiThread(() -> this.cloudTextView.setText(getResources().getString(animalSaysResource)));
+    }
+
+    @Override
+    public void setBackground(Bitmap bitmap) {
+
+        if (this.boardView == null) {
+            return;
         }
 
-        return true;
+        this.boardView.setBackgroundBitmap(bitmap);
+        this.progressBar.setVisibility(View.GONE);
     }
 
-    private boolean isMotionEventClicked(MotionEvent motionEvent) {
-        return isDown(motionEvent) || motionEvent.getAction() == MotionEvent.ACTION_MOVE;
-    }
-
-    private boolean isDown(MotionEvent motionEvent) {
-        return motionEvent.getAction() == MotionEvent.ACTION_DOWN || motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN;
-    }
-
-    private boolean clickedOnAnimal(MotionEvent motionEvent) {
-
-        for (int i = 0; i < motionEvent.getPointerCount(); i++) {
-
-            if (this.boardView.getAnimal().getRectF().contains(motionEvent.getX(i), motionEvent.getY(i))) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private void playSound() {
-
-        if (!this.isMediaPlayerActive) {
-            setupMediaPlayer();
-        }
-
-        if (!this.mediaPlayer.isPlaying()) {
-            mediaPlayer.start();
-            showCloud();
-        }
-    }
-
-    private void setupMediaPlayer() {
-        this.mediaPlayer = MediaPlayer.create(this, this.boardView.getAnimal().getSoundResource());
-        this.isMediaPlayerActive = true;
-
-        this.mediaPlayer.setOnCompletionListener(mediaPlayer -> {
-            stopMediaPlayer();
-        });
-    }
-
-    private void stopMediaPlayer() {
-
-        if (this.isMediaPlayerActive) {
-            this.isMediaPlayerActive = false;
-            this.mediaPlayer.stop();
-            this.mediaPlayer.release();
-            hideCloud();
-        }
-    }
-
-    private void showCloud() {
-        runOnUiThread(() -> this.cloudRelativeLayout.setVisibility(View.VISIBLE));
-    }
-
-    private void hideCloud() {
-        runOnUiThread(() -> this.cloudRelativeLayout.setVisibility(View.GONE));
-    }
-
-    private void setupCloud() {
+    @Override
+    public void setupCloud() {
         Glide.with(this).load(R.drawable.helper_cloud).into(this.cloudImageView);
     }
 
-    private void setCloud() {
-        runOnUiThread(() ->this.cloudTextView.setText(this.boardView.getAnimal().getAnimalSays()));
+    @Override
+    public void showCloud() {
+        runOnUiThread(() -> this.cloudRelativeLayout.setVisibility(View.VISIBLE));
+    }
+
+    @Override
+    public void hideCloud() {
+        runOnUiThread(() -> this.cloudRelativeLayout.setVisibility(View.GONE));
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

@@ -1,4 +1,4 @@
-package com.nani.gamesForKids.Games.Animals;
+package com.nani.gamesForKids.Games.Animals.Basic;
 
 /**
  * Created by nataliajastrzebska on 21/03/16.

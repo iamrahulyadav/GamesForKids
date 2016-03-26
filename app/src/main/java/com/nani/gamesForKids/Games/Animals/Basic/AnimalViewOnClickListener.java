@@ -1,4 +1,4 @@
-package com.nani.gamesForKids.Games.Animals;
+package com.nani.gamesForKids.Games.Animals.Basic;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -22,9 +22,9 @@ public class AnimalViewOnClickListener implements View.OnTouchListener {
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public boolean onTouch(View view, MotionEvent event) {
 
-        if (!isMediaPlayerActive) {
+        if (!this.isMediaPlayerActive) {
             setupMediaPlayer();
         }
 
@@ -44,13 +44,14 @@ public class AnimalViewOnClickListener implements View.OnTouchListener {
         this.mediaPlayer = MediaPlayer.create(this.context, this.soundResourceId);
         this.isMediaPlayerActive = true;
 
-        this.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                AnimalViewOnClickListener.this.isMediaPlayerActive = false;
-                mediaPlayer.stop();
-                mediaPlayer.release();
-            }
+        this.mediaPlayer.setOnCompletionListener(mediaPlayer -> {
+            stopMediaPlayer();
         });
+    }
+
+    private void stopMediaPlayer() {
+        this.isMediaPlayerActive = false;
+        mediaPlayer.stop();
+        mediaPlayer.release();
     }
 }

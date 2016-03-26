@@ -28,8 +28,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Fullscreen"/>
         <activity
-            android:name=".Games.Animals.AnimalsActivity"
+            android:name=".Games.Animals.Basic.AnimalsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen"/>
+        <activity
+            android:name=".Games.Animals.MovingAnimals.MovingAnimalsActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Fullscreen"/>
     </application>
 

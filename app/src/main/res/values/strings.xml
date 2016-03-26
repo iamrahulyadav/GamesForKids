@@ -9,4 +9,12 @@
     <string name="frog">frog</string>
     <string name="sheep">sheep</string>
     <string name="goat">goat</string>
+    <string name="cow_says">Moo</string>
+    <string name="cat_says">Meow</string>
+    <string name="dog_says">Woof</string>
+    <string name="horse_says">Neigh</string>
+    <string name="duck_says">Quack</string>
+    <string name="frog_says">Ribbit</string>
+    <string name="sheep_says">Baah</string>
+    <string name="goat_says">Meeh</string>
 </resources>

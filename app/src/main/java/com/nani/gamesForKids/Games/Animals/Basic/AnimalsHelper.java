@@ -1,5 +1,6 @@
-package com.nani.gamesForKids.Games.Animals;
+package com.nani.gamesForKids.Games.Animals.Basic;
 
+import com.nani.gamesForKids.Games.Animals.Basic.Animal;
 import com.nani.gamesForKids.R;
 
 import java.util.ArrayList;

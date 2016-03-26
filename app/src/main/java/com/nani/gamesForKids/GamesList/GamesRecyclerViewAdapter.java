@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.nani.gamesForKids.Games.Animals.AnimalsActivity;
+import com.nani.gamesForKids.Games.Animals.Basic.AnimalsActivity;
+import com.nani.gamesForKids.Games.Animals.MovingAnimals.MovingAnimalsActivity;
 import com.nani.gamesForKids.Games.CatchADot.CatchDotActivity;
 import com.nani.gamesForKids.R;
 import com.nani.gamesForKids.Games.Smiley.FollowSmileyActivity;
@@ -71,8 +72,8 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
 
         this.games.add(new Game("Smiley", R.drawable.game_smiley, FollowSmileyActivity.class));
         this.games.add(new Game("Catch a dot", R.drawable.game_catch_dot, CatchDotActivity.class));
-        this.games.add(new Game("Smiley", R.drawable.game_smiley, AnimalsActivity.class));
-        this.games.add(new Game("Smiley", R.mipmap.ic_launcher, "info", FollowSmileyActivity.class));
+        this.games.add(new Game("Smiley", R.drawable.animal_cat, AnimalsActivity.class));
+        this.games.add(new Game("Smiley", R.drawable.animal_duck, MovingAnimalsActivity.class));
     }
 
     public Game getGameAtPosition(int position) {

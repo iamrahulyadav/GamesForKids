@@ -1,4 +1,4 @@
-package com.nani.gamesForKids.Games.Animals;
+package com.nani.gamesForKids.Games.Animals.Basic;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -32,10 +32,6 @@ public class AnimalsActivity extends FullScreenGameActivity {
                 displayAnimal(animal);
             }
         });
-
-        /*for (Animal animal : animals) {
-            displayAnimal(animal);
-        }*/
     }
 
     @Override

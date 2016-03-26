@@ -37,4 +37,12 @@
         <item name="android:shadowRadius">5.0</item>
     </style>
 
+    <style name="AppTheme.CloudLabel" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
 </resources>

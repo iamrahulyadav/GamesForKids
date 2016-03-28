@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="abc_home_roof">#ff0000</color>
+    <color name="abc_home_house">#C0A172</color>
+    <color name="abc_home_door">#453823</color>
+    <color name="abc_home_door_border">#382E1C</color>
+    <color name="abc_home_window">#ACD1E9</color>
+    <color name="abc_home_window_border">#B7AFA3</color>
+
+</resources>

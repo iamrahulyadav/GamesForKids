@@ -17,4 +17,6 @@
     <string name="frog_says">Ribbit</string>
     <string name="sheep_says">Baah</string>
     <string name="goat_says">Meeh</string>
+    <string name="it_is_a_home">It is a home!</string>
+    <string name="home">home</string>
 </resources>

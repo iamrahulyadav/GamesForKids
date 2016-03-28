@@ -35,7 +35,7 @@
             android:name=".Games.Animals.MovingAnimals.MovingAnimalsActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Fullscreen" />
-        <activity android:name=".Games.kotlin.KotlinActivity"></activity>
+        <activity android:name=".Games.AbcHome.AbcHomeActivity"></activity>
     </application>
 
 </manifest>

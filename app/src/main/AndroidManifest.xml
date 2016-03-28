@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nani.gamesForKids" >
+    package="com.nani.gamesForKids">
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -9,14 +9,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Games.Smiley.FollowSmileyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".GamesList.GamesListActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,15 +26,16 @@
         <activity
             android:name=".Games.CatchADot.CatchDotActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Fullscreen"/>
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".Games.Animals.Basic.AnimalsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Fullscreen"/>
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".Games.Animals.MovingAnimals.MovingAnimalsActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.Fullscreen"/>
+            android:theme="@style/AppTheme.Fullscreen" />
+        <activity android:name=".Games.AbcHome.AbcHomeActivity"></activity>
     </application>
 
 </manifest>

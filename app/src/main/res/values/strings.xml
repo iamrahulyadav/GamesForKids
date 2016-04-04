@@ -19,4 +19,10 @@
     <string name="goat_says">Meeh</string>
     <string name="it_is_a_home">It is a home!</string>
     <string name="home">home</string>
+
+    <string name="game_smiley">Smiley</string>
+    <string name="game_catch_a_dot">Catch a dot</string>
+    <string name="game_animals">Animals</string>
+    <string name="game_moving_animals">Animals</string>
+    <string name="game_abc_home">ABC Home</string>
 </resources>

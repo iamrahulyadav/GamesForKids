@@ -71,11 +71,11 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
     private void populateListOfGames() {
         this.games = new ArrayList<>();
 
-        this.games.add(new Game("Smiley", R.drawable.game_smiley, FollowSmileyActivity.class));
-        this.games.add(new Game("Catch a dot", R.drawable.game_catch_dot, CatchDotActivity.class));
-        this.games.add(new Game("Smiley", R.drawable.animal_cat, AnimalsActivity.class));
-        this.games.add(new Game("Smiley", R.drawable.animal_duck, MovingAnimalsActivity.class));
-        this.games.add(new Game("Kotlin", R.drawable.game_smiley, AbcHomeActivity.class));
+        this.games.add(new Game(context.getString(R.string.game_smiley), R.drawable.game_smiley, FollowSmileyActivity.class));
+        this.games.add(new Game(context.getString(R.string.game_catch_a_dot), R.drawable.game_catch_dot, CatchDotActivity.class));
+        this.games.add(new Game(context.getString(R.string.game_animals), R.drawable.game_animals, AnimalsActivity.class));
+        this.games.add(new Game(context.getString(R.string.game_moving_animals), R.drawable.game_moving_animals, MovingAnimalsActivity.class));
+        this.games.add(new Game(context.getString(R.string.game_abc_home), R.drawable.game_abc_home, AbcHomeActivity.class));
     }
 
     public Game getGameAtPosition(int position) {

@@ -32,7 +32,6 @@ public class MovingAnimalsActivity extends FullScreenGameActivity implements Mov
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
 
-
     private MovingAnimalsPresenter presenter;
 
     @Override

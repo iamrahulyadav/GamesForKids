@@ -25,16 +25,12 @@
     </style>
 
     <style name="AppTheme.GameCardLabel" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/icons</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:paddingBottom">@dimen/activity_vertical_small_margin</item>
         <item name="android:gravity">center</item>
-        <item name="android:shadowColor">#000000</item>
-        <item name="android:shadowDx">0.0</item>
-        <item name="android:shadowDy">0.0</item>
-        <item name="android:shadowRadius">5.0</item>
     </style>
 
     <style name="AppTheme.CloudLabel" parent="TextAppearance.AppCompat">

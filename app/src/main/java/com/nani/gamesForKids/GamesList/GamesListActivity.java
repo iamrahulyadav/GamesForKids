@@ -22,8 +22,6 @@ public class GamesListActivity extends AppCompatActivity implements RecyclerView
     RecyclerView gamesRecyclerView;
     @Bind(R.id.applicationTitleImageView)
     ImageView logoImageView;
-    @Bind(R.id.backgroundImageView)
-    ImageView backgroundImageView;
 
     private GamesRecyclerViewAdapter adapter;
     private GestureDetector gestureDetector;
@@ -39,7 +37,6 @@ public class GamesListActivity extends AppCompatActivity implements RecyclerView
         setupRecyclerView();
 
         Glide.with(this).load(R.drawable.toddler_logo).into(this.logoImageView);
-        Glide.with(this).load(R.drawable.background).centerCrop().into(this.backgroundImageView);
     }
 
     @Override

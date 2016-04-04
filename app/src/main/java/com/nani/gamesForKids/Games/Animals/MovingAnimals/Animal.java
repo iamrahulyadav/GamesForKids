@@ -46,7 +46,7 @@ public class Animal {
     }
 
     public void start() {
-        this.x = -20.f;
+        this.x = this.boardWidth + 20.0f;
 
         if (this.bitmap == null) {
             this.y = 100.f;
@@ -126,7 +126,7 @@ public class Animal {
 
     public boolean isOutsideScreen() {
 
-        if (this.x > this.boardWidth) {
+        if (this.x < 0) {
             return true;
         }
 

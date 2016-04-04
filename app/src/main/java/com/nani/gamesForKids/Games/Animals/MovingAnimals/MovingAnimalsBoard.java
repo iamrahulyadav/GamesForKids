@@ -56,7 +56,7 @@ public class MovingAnimalsBoard extends ImageView implements Runnable {
                 continue;
             }
 
-            this.animal.update(0.005f, 0);
+            this.animal.update(-0.005f, 0);
             ((MovingAnimalsActivity)this.context).runOnUiThread(() -> invalidate());
 
             if (this.animal.isOutsideScreen()) {

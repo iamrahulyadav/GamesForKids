@@ -36,7 +36,7 @@ public class GamesListActivity extends AppCompatActivity implements RecyclerView
 
         setupRecyclerView();
 
-        Glide.with(this).load(R.drawable.toddler_logo).into(this.logoImageView);
+        Glide.with(this).load(R.drawable.toddler_logo).fitCenter().into(this.logoImageView);
     }
 
     @Override

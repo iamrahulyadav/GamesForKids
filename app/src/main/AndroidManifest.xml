@@ -16,7 +16,8 @@
             android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".GamesList.GamesListActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

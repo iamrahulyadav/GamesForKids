@@ -126,7 +126,7 @@ public class Animal {
 
     public boolean isOutsideScreen() {
 
-        if (this.x < 0) {
+        if (this.bitmap != null && this.x + this.bitmap.getWidth() < 0) {
             return true;
         }
 

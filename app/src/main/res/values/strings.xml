@@ -26,4 +26,8 @@
     <string name="game_animals">Animals</string>
     <string name="game_moving_animals">Animals</string>
     <string name="game_abc_home">ABC Home</string>
+
+    <string name="refresh">Refresh</string>
+
+    <!--POLISH-->
 </resources>

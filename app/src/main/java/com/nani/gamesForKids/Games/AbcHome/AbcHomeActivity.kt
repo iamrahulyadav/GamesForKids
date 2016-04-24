@@ -25,6 +25,10 @@ class AbcHomeActivity : FullScreenGameActivity(), AbcHomeBoardView.AbcBoardViewL
         setContentView(R.layout.activity_abc_home)
 
         textToSpeech = TextToSpeech(this, this)
+        refreshButton.setOnClickListener(View.OnClickListener {
+            finish();
+            startActivity(getIntent());
+        })
     }
 
     override fun onDestroy() {
@@ -46,6 +50,10 @@ class AbcHomeActivity : FullScreenGameActivity(), AbcHomeBoardView.AbcBoardViewL
     }
 
     override fun boardViewSizeChanged() {
+        setupBoardView()
+    }
+
+    fun setupBoardView() {
         populateList(abcBoardView.width / 10.0f)
         showNextLetter()
         abcBoardView.setOnTouchListener(this)
@@ -79,6 +87,7 @@ class AbcHomeActivity : FullScreenGameActivity(), AbcHomeBoardView.AbcBoardViewL
         finishGameView()
         finishGameSpeak()
         homeTextView.visibility = View.VISIBLE
+        refreshButton.visibility = View.VISIBLE
     }
 
     fun finishGameSpeak() {

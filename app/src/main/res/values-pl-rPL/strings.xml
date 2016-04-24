@@ -27,4 +27,7 @@
     <string name="game_animals">Zwierzaki</string>
     <string name="game_moving_animals">Zwierzaki</string>
     <string name="game_abc_home">ABC Domek</string>
+
+    <string name="refresh">Jeszcze raz</string>
+
 </resources>

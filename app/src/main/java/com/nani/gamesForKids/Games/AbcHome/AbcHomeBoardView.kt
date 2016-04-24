@@ -62,6 +62,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawCircle(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = letterCircle!!.circleColor
 
         canvas!!.drawCircle(letterCircle!!.centerX, letterCircle!!.centerY, letterCircle!!.radius, paint)
@@ -69,6 +70,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawLetter(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = Color.WHITE
         paint.textSize = letterCircle!!.radius * 2
         paint.textAlign = Paint.Align.CENTER;
@@ -79,6 +81,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawMainPath(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = Color.BLUE
         paint.strokeWidth = strokeWidth;
         paint.style = Paint.Style.STROKE
@@ -98,6 +101,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawRoof(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = ContextCompat.getColor(context, R.color.abc_home_roof)
 
         canvas!!.drawPath(home!!.getRoofPath(), paint)
@@ -105,6 +109,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawHouse(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = ContextCompat.getColor(context, R.color.abc_home_house)
 
         canvas!!.drawPath(home!!.getHousePath(), paint)
@@ -112,6 +117,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawDoor(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = ContextCompat.getColor(context, R.color.abc_home_door)
         canvas!!.drawRect(home!!.getDoorRect(), paint)
 
@@ -123,6 +129,7 @@ public class AbcHomeBoardView : ImageView {
 
     fun drawWindow(canvas: Canvas?) {
         var paint: Paint = Paint()
+        paint.isAntiAlias = true
         paint.color = ContextCompat.getColor(context, R.color.abc_home_window)
         canvas!!.drawRect(home!!.getWindowRect(), paint)
 

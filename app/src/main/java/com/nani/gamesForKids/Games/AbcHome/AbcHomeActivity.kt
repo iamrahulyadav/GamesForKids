@@ -2,6 +2,7 @@ package com.nani.gamesForKids.Games.AbcHome
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.nani.gamesForKids.Core.FullScreenGameActivity
@@ -127,10 +128,11 @@ class AbcHomeActivity : FullScreenGameActivity(), AbcHomeBoardView.AbcBoardViewL
     override fun onInit(status: Int) {
 
         if (status == TextToSpeech.SUCCESS) {
-            textToSpeech!!.language = Locale.UK
+            var locale = Locale(Locale.getDefault().getISO3Language(), Locale.getDefault().getISO3Country())
+            textToSpeech!!.language = locale
 
             var hashMap = HashMap<String, String>();
-            hashMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "");
+            hashMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "")
             textToSpeech!!.speak(" ", TextToSpeech.QUEUE_FLUSH, hashMap)
             textToSpeech!!.setOnUtteranceProgressListener(object: UtteranceProgressListener() {
 

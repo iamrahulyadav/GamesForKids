@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Toddler Games</string>
+    <string name="fullscreen_animation_name">fullscreen</string>
+
+    <string name="cow">krowa</string>
+    <string name="cat">kot</string>
+    <string name="dog">pies</string>
+    <string name="horse">koń</string>
+    <string name="duck">kaczka</string>
+    <string name="frog">żaba</string>
+    <string name="sheep">owca</string>
+    <string name="goat">koza</string>
+    <string name="cow_says">Muu</string>
+    <string name="cat_says">Miau</string>
+    <string name="dog_says">Hau</string>
+    <string name="horse_says">I ha ha</string>
+    <string name="duck_says">KwaKwa</string>
+    <string name="frog_says">KumKum</string>
+    <string name="sheep_says">Baa</string>
+    <string name="goat_says">Mee</string>
+    <string name="it_is_a_home">To domek!</string>
+    <string name="home">dom</string>
+
+    <string name="game_smiley">Smiley</string>
+    <string name="game_catch_a_dot">Złap kropę</string>
+    <string name="game_animals">Zwierzaki</string>
+    <string name="game_moving_animals">Zwierzaki</string>
+    <string name="game_abc_home">ABC Domek</string>
+</resources>

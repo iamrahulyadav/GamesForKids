@@ -36,7 +36,10 @@
             android:name=".Games.Animals.MovingAnimals.MovingAnimalsActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Fullscreen" />
-        <activity android:name=".Games.AbcHome.AbcHomeActivity"></activity>
+        <activity
+            android:name=".Games.AbcHome.AbcHomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen"/>
     </application>
 
 </manifest>

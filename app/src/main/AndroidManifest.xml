@@ -40,6 +40,10 @@
             android:name=".Games.AbcHome.AbcHomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Fullscreen"/>
+        <activity
+            android:name=".Games.Face.Basic.FaceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen"/>
     </application>
 
 </manifest>

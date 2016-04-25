@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.nani.gamesForKids.Core.MVPView;
 import com.nani.gamesForKids.Core.Presenter;
+import com.nani.gamesForKids.Helper.MultiTouchCatcher;
 import com.nani.gamesForKids.R;
 import com.nani.gamesForKids.Games.Smiley.Helpers.Smiley;
 
@@ -131,16 +132,7 @@ public class FollowSmileyPresenter implements Presenter, View.OnTouchListener {
     }
 
     private boolean caughtASmiley(MotionEvent motionEvent) {
-
-        for (int i = 0; i < motionEvent.getPointerCount(); i++) {
-
-            if (this.oldSmiley.getRectF().contains(motionEvent.getX(i), motionEvent.getY(i))) {
-
-                return true;
-            }
-        }
-
-        return this.oldSmiley.getRectF().contains(motionEvent.getX(), motionEvent.getY());
+        return MultiTouchCatcher.caughtARectF(motionEvent, this.oldSmiley.getRectF());
     }
 
     public interface FollowSmileyView extends MVPView {

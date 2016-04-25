@@ -1,17 +1,18 @@
 package com.nani.gamesForKids.Games.Face.Basic;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.nani.gamesForKids.Core.FullScreenGameActivity;
 import com.nani.gamesForKids.Games.Face.Face;
-import com.nani.gamesForKids.Games.Face.FacePart;
 import com.nani.gamesForKids.Games.Face.FaceTouchListener;
 import com.nani.gamesForKids.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,12 +37,15 @@ public class FaceActivity extends FullScreenGameActivity implements FaceTouchLis
         ButterKnife.bind(this);
 
         try {
-            JSONArray faceJsonArray = new JSONArray(loadJSONFromAsset());
-            this.face = new Face(faceJsonArray.getJSONObject(0));
-            Glide.with(this).load(R.drawable.face_boy).fitCenter().into(faceImageView);
+            JSONObject facesJsonObject = new JSONObject(loadJSONFromAsset());
+            JSONArray facesJsonArray = facesJsonObject.getJSONArray("faces");
+            this.face = new Face(facesJsonArray.getJSONObject(0));
+            Glide.with(this).load(R.drawable.face_boy).fitCenter().into(this.faceImageView);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        this.faceImageView.setOnTouchListener(new FaceTouchListener(this, this.face));
     }
 
     @Override
@@ -54,7 +58,7 @@ public class FaceActivity extends FullScreenGameActivity implements FaceTouchLis
         String json = null;
 
         try {
-            InputStream is = getAssets().open("native/face.json");
+            InputStream is = getAssets().open("native/faces.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -70,7 +74,7 @@ public class FaceActivity extends FullScreenGameActivity implements FaceTouchLis
     }
 
     @Override
-    public void clickedOn(FacePart facePart) {
-
+    public void clickedOn(String facePartName) {
+        Log.d("Natalia", facePartName);
     }
 }

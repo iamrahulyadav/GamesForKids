@@ -13,6 +13,7 @@ import com.nani.gamesForKids.Games.Animals.Basic.AnimalsActivity;
 import com.nani.gamesForKids.Games.Animals.MovingAnimals.MovingAnimalsActivity;
 import com.nani.gamesForKids.Games.CatchADot.CatchDotActivity;
 import com.nani.gamesForKids.Games.AbcHome.AbcHomeActivity;
+import com.nani.gamesForKids.Games.Face.Basic.FaceActivity;
 import com.nani.gamesForKids.R;
 import com.nani.gamesForKids.Games.Smiley.FollowSmileyActivity;
 
@@ -76,6 +77,7 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<GamesRecycler
         this.games.add(new Game(context.getString(R.string.game_animals), R.drawable.game_animals, AnimalsActivity.class));
         this.games.add(new Game(context.getString(R.string.game_moving_animals), R.drawable.game_moving_animals, MovingAnimalsActivity.class));
         this.games.add(new Game(context.getString(R.string.game_abc_home), R.drawable.game_abc_home, AbcHomeActivity.class));
+        this.games.add(new Game("Face", R.drawable.game_abc_home, FaceActivity.class));
     }
 
     public Game getGameAtPosition(int position) {

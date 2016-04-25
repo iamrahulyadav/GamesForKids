@@ -5,7 +5,8 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 
-public class PositionTranslator {
+public class
+        PositionTranslator {
 
     private float imageWidth, imageHeight;
     private float viewWidth, viewHeight;

@@ -7,27 +7,45 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by nataliajastrzebska on 25/04/16.
  */
 public class Face {
-    List<Rect> earList = null;
+    private HashMap<String, List<Rect>> facePartListHashMap;
 
     public Face(JSONObject faceJsonObject) throws JSONException {
+        this.facePartListHashMap = new HashMap<>();
+        Iterator jsonKeys = faceJsonObject.keys();
 
-        if (faceJsonObject.has("ear")) {
-            populateEar(faceJsonObject.getJSONArray("ear"));
+        while (jsonKeys.hasNext()) {
+            String jsonKey = jsonKeys.next().toString();
+
+            if (jsonKey.equals("id")) {
+                continue;
+            }
+
+            JSONArray jsonArray = faceJsonObject.getJSONArray(jsonKey);
+            facePartListHashMap.put(jsonKey, getRects(jsonArray));
         }
+
     }
 
-    private void populateEar(JSONArray earJsonArray) throws JSONException {
-        this.earList = new ArrayList<>();
+    public HashMap<String, List<Rect>> getFacePartListHashMap() {
+        return facePartListHashMap;
+    }
 
-        for (int i = 0; i < earJsonArray.length(); i++) {
-            this.earList.add(getRectForJsonObject(earJsonArray.getJSONObject(i)));
+    private List<Rect> getRects(JSONArray jsonArray) throws JSONException {
+        List<Rect> rects = new ArrayList<>();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            rects.add(getRectForJsonObject(jsonArray.getJSONObject(i)));
         }
+
+        return rects;
     }
 
     private Rect getRectForJsonObject(JSONObject rectJsonObject) throws JSONException {

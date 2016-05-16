@@ -5,8 +5,9 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 
-public class
-        PositionTranslator {
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
+
+public class PositionTranslator {
 
     private float imageWidth, imageHeight;
     private float viewWidth, viewHeight;
@@ -16,11 +17,20 @@ public class
     private double widthFactor, heightFactor;
 
     public PositionTranslator(ImageView imageView) {
-        bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         this.imageView = imageView;
+        setBitmap();
         setImageSize();
         setViewSize();
         setFactors();
+    }
+
+    private void setBitmap() {
+
+        if (this.imageView.getDrawable() instanceof GlideBitmapDrawable) {
+            this.bitmap = ((GlideBitmapDrawable) this.imageView.getDrawable()).getBitmap();
+        } else {
+            this.bitmap = ((BitmapDrawable) this.imageView.getDrawable()).getBitmap();
+        }
     }
 
     private void setImageSize() {

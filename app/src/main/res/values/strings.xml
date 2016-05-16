@@ -29,5 +29,11 @@
 
     <string name="refresh">Refresh</string>
 
-    <!--POLISH-->
+    <string name="ear">ear</string>
+    <string name="eye">eye</string>
+    <string name="nose">nose</string>
+    <string name="mouth">mouth</string>
+    <string name="hair">hair</string>
+
+    <!--{POLSKI}-->
 </resources>

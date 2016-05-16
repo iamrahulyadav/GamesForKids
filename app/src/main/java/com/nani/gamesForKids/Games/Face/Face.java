@@ -1,6 +1,10 @@
 package com.nani.gamesForKids.Games.Face;
 
 import android.graphics.Rect;
+import android.widget.ImageView;
+
+import com.nani.gamesForKids.Helper.PositionTranslator;
+import com.nani.gamesForKids.Helper.RectTranslator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,8 +21,9 @@ import java.util.List;
 public class Face {
     private HashMap<String, List<Rect>> facePartListHashMap;
 
-    public Face(JSONObject faceJsonObject) throws JSONException {
+    public Face(JSONObject faceJsonObject, PositionTranslator positionTranslator) throws JSONException {
         this.facePartListHashMap = new HashMap<>();
+
         Iterator jsonKeys = faceJsonObject.keys();
 
         while (jsonKeys.hasNext()) {
@@ -29,7 +34,7 @@ public class Face {
             }
 
             JSONArray jsonArray = faceJsonObject.getJSONArray(jsonKey);
-            facePartListHashMap.put(jsonKey, getRects(jsonArray));
+            this.facePartListHashMap.put(jsonKey, getTranslatedRects(positionTranslator, getRects(jsonArray)));
         }
 
     }
@@ -46,6 +51,16 @@ public class Face {
         }
 
         return rects;
+    }
+
+    private List<Rect> getTranslatedRects(PositionTranslator positionTranslator, List<Rect> rects) {
+        List<Rect> translatedRects = new ArrayList<>();
+
+        for (Rect rect : rects) {
+            translatedRects.add(RectTranslator.getViewRectForImageRect(positionTranslator, rect));
+        }
+
+        return translatedRects;
     }
 
     private Rect getRectForJsonObject(JSONObject rectJsonObject) throws JSONException {

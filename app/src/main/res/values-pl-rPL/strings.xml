@@ -30,4 +30,10 @@
 
     <string name="refresh">Jeszcze raz</string>
 
+    <string name="ear">ucho</string>
+    <string name="eye">oko</string>
+    <string name="nose">nos</string>
+    <string name="mouth">usta</string>
+    <string name="hair">włosy</string>
+    
 </resources>

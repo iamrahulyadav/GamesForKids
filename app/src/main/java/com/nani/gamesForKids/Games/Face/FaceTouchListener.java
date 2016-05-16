@@ -28,6 +28,10 @@ public class FaceTouchListener implements View.OnTouchListener {
     public boolean onTouch(View v, MotionEvent motionEvent) {
         Iterator iterator = this.face.getFacePartListHashMap().entrySet().iterator();
 
+        if (motionEvent.getAction() == MotionEvent.ACTION_UP || motionEvent.getAction() == MotionEvent.ACTION_POINTER_UP) {
+            return false;
+        }
+
         while (iterator.hasNext()) {
             Map.Entry rects = (Map.Entry) iterator.next();
 

@@ -24,7 +24,6 @@ public class MovingAnimalsBoard extends ImageView implements Runnable {
         this.context = context;
     }
 
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

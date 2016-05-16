@@ -8,7 +8,15 @@
       ],
       "nose": [
         {"left": 80, "top": 120, "right": 108, "bottom": 133}
-      ]},
+      ],
+      "eye": [
+        {"left": 62, "top": 91, "right": 90, "bottom": 125},
+        {"left": 101, "top": 91, "right": 129, "bottom": 125}
+      ],
+      "mouth": [
+        {"left": 85, "top": 154, "right": 120, "bottom": 166}
+      ]
+    },
     {
       "id" : "2",
       "ear": [
